@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Dokumentacja Projektu Zaliczeniowego - WorkoutPlanner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #000;
+            background: white;
+            max-width: 18cm;
+            margin: 0 auto;
+            padding: 2cm 0;
+        }
+
+        @media print {
+            body { padding: 0; margin: 0; max-width: none; }
+            @page { margin: 2.5cm; size: A4; }
+            .page-break { page-break-before: always; }
+        }
+
+        h1 {
+            font-size: 18pt;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 60pt;
+            margin-bottom: 30pt;
+        }
+
+        h2 {
+            font-size: 13pt;
+            font-weight: bold;
+            margin-top: 24pt;
+            margin-bottom: 6pt;
+            border-bottom: 1px solid #000;
+            padding-bottom: 3pt;
+        }
+
+        h3 {
+            font-size: 11pt;
+            font-weight: bold;
+            margin-top: 16pt;
+            margin-bottom: 6pt;
+        }
+
+        p {
+            margin-bottom: 6pt;
+            text-align: justify;
+        }
+
+        .center {
+            text-align: center;
+            margin-bottom: 6pt;
+        }
+
+        .center a {
+            color: #1155cc;
+            text-decoration: underline;
+        }
+
+        ul {
+            margin: 6pt 0 6pt 24pt;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 6pt;
+        }
+
+        .screenshot-row {
+            display: flex;
+            justify-content: center;
+            gap: 20pt;
+            margin: 16pt 0;
+        }
+
+        .screenshot-row img {
+            height: 280pt;
+            border: 0.5pt solid #ccc;
+        }
+
+        .screenshot-caption {
+            text-align: center;
+            font-size: 9pt;
+            color: #555;
+            font-style: italic;
+            margin-top: 4pt;
+            margin-bottom: 12pt;
+        }
+
+        .screenshot-item {
+            text-align: center;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            font-size: 10pt;
+        }
+
+        .code-block {
+            font-family: 'Courier New', monospace;
+            font-size: 9pt;
+            line-height: 1.4;
+            white-space: pre;
+            margin: 8pt 0 8pt 12pt;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 8pt 0;
+            font-size: 10pt;
+        }
+
+        th, td {
+            border: 1px solid #999;
+            padding: 4pt 8pt;
+            text-align: left;
+        }
+
+        th {
+            background: #f0f0f0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>DOKUMENTACJA PROJEKTU ZALICZENIOWEGO</h1>
+
+<p class="center"><b>Temat projektu:</b> Mobilna aplikacja do planowania treningĂłw â€žWorkoutPlanner"</p>
+<p class="center"><b>Autorzy:</b> Patryk Polaszewski, Ĺukasz Pytel, Agnieszka Rossa</p>
+<p class="center"><a href="https://github.com/polaszewsky/WorkoutPlanne.git">https://github.com/polaszewsky/WorkoutPlanne.git</a></p>
+
+<h2>1. Specyfikacja projektu</h2>
+
+<h3>Wymagania funkcjonalne</h3>
+<ul>
+    <li><b>Baza Ä‡wiczeĹ„:</b> System musi udostÄ™pniaÄ‡ bazÄ™ 18 predefiniowanych Ä‡wiczeĹ„ siĹ‚owych pogrupowanych w 6 kategorii (klatka piersiowa, plecy, nogi, barki, ramiona, brzuch) wraz z moĹĽliwoĹ›ciÄ… wyszukiwania i filtrowania.</li>
+    <li><b>Dodawanie wĹ‚asnych Ä‡wiczeĹ„:</b> System musi umoĹĽliwiaÄ‡ uĹĽytkownikowi tworzenie wĹ‚asnych Ä‡wiczeĹ„ z opisem i przypisaniem do kategorii.</li>
+    <li><b>Tworzenie planĂłw treningowych:</b> System musi pozwalaÄ‡ na tworzenie spersonalizowanych planĂłw treningowych skĹ‚adajÄ…cych siÄ™ z wybranych Ä‡wiczeĹ„ z konfiguracjÄ… serii, powtĂłrzeĹ„ i ciÄ™ĹĽaru.</li>
+    <li><b>Kalendarz treningowy:</b> System musi prezentowaÄ‡ graficzny kalendarz miesiÄ™czny z oznaczeniem dni zaplanowanych i ukoĹ„czonych treningĂłw, wraz z moĹĽliwoĹ›ciÄ… planowania nowych treningĂłw na wybrane daty.</li>
+    <li><b>Aktywny trening:</b> System musi umoĹĽliwiaÄ‡ rozpoczÄ™cie zaplanowanego treningu z minutnikiem, dynamicznym zaznaczaniem ukoĹ„czonych serii oraz podpowiedziami ciÄ™ĹĽaru z poprzedniego treningu (progresja).</li>
+    <li><b>Statystyki i progresja:</b> System musi prezentowaÄ‡ zagregowane dane statystyczne: Ĺ‚Ä…cznÄ… liczbÄ™ treningĂłw, sumaryczny czas Ä‡wiczeĹ„, aktywnoĹ›Ä‡ tygodniowÄ… i miesiÄ™cznÄ… oraz wykres progresji ciÄ™ĹĽaru dla wybranego Ä‡wiczenia.</li>
+    <li><b>TrwaĹ‚oĹ›Ä‡ danych:</b> System musi zapisywaÄ‡ wszystkie dane uĹĽytkownika (Ä‡wiczenia, plany, zaplanowane treningi, logi) w pamiÄ™ci lokalnej urzÄ…dzenia za pomocÄ… serializacji JSON.</li>
+</ul>
+
+<h3>KrĂłtki opis projektu</h3>
+<p>Projekt â€žWorkoutPlanner" to natywna aplikacja mobilna na system Android, sĹ‚uĹĽÄ…ca do kompleksowego zarzÄ…dzania treningami siĹ‚owymi. Aplikacja umoĹĽliwia przeglÄ…danie bazy Ä‡wiczeĹ„, tworzenie indywidualnych planĂłw treningowych, planowanie sesji w kalendarzu, prowadzenie aktywnego treningu z minutnikiem i Ĺ›ledzenie progresji ciÄ™ĹĽarĂłw. Projekt kĹ‚adzie nacisk na nowoczesny design w stylu dark mode, intuicyjnÄ… nawigacjÄ™ oraz peĹ‚ne wykorzystanie wzorca architektonicznego MVVM z technologiÄ… Jetpack Compose.</p>
+
+<h3>Potencjalni odbiorcy systemu</h3>
+<p><b>EntuzjaĹ›ci fitness i kulturystyki:</b> Osoby regularnie trenujÄ…ce na siĹ‚owni, potrzebujÄ…ce narzÄ™dzia do planowania i Ĺ›ledzenia swoich treningĂłw, serii, powtĂłrzeĹ„ i progresji ciÄ™ĹĽarĂłw.</p>
+<p><b>Osoby rozpoczynajÄ…ce przygodÄ™ z treningiem:</b> PoczÄ…tkujÄ…cy, ktĂłrzy potrzebujÄ… uporzÄ…dkowanej bazy Ä‡wiczeĹ„ z opisami wykonania oraz gotowych planĂłw treningowych typu Push/Pull/Legs.</p>
+
+<h3>KorzyĹ›ci dla UĹĽytkownikĂłw KoĹ„cowych</h3>
+<p><b>Systematyczny rozwĂłj:</b> DziÄ™ki funkcji progresji ciÄ™ĹĽarĂłw uĹĽytkownik widzi swoje poprzednie wyniki i moĹĽe Ĺ›wiadomie zwiÄ™kszaÄ‡ obciÄ…ĹĽenia, co prowadzi do mierzalnego postÄ™pu.</p>
+<p><b>OszczÄ™dnoĹ›Ä‡ czasu:</b> Gotowe plany treningowe i zaplanowany kalendarz eliminujÄ… koniecznoĹ›Ä‡ zastanawiania siÄ™ nad programem treningowym na siĹ‚owni â€” uĹĽytkownik skupia siÄ™ wyĹ‚Ä…cznie na wykonaniu Ä‡wiczeĹ„.</p>
+
+<h2>2. Warstwa funkcjonalna</h2>
+<p>Realizacja kodu ĹşrĂłdĹ‚owego w peĹ‚ni pokrywa zdefiniowane w specyfikacji wymagania funkcjonalne. Logika biznesowa zostaĹ‚a zaimplementowana w piÄ™ciu klasach ViewModel:</p>
+
+<p>Funkcja <code>loadExercises()</code> pobiera dane z <code>DataStore</code>; przy pierwszym uruchomieniu automatycznie inicjalizuje bazÄ™ 18 domyĹ›lnymi Ä‡wiczeniami z klasy <code>SampleData</code>. Funkcja <code>addExercise(name, description, category)</code> tworzy nowy obiekt <code>Exercise</code> z flagÄ… <code>isCustom = true</code> i dodaje go do kolekcji. Walidacja odbywa siÄ™ na poziomie warstwy widoku przed wywoĹ‚aniem tej funkcji.</p>
+
+<p>Kolekcja <code>exercises</code> zostaĹ‚a oznaczona jako <code>mutableStateListOf</code>. KaĹĽda zmiana w tej kolekcji automatycznie powiadamia warstwÄ™ widoku o koniecznoĹ›ci przerysowania interfejsu.</p>
+
+<p>Metoda <code>scheduleWorkout(plan, date)</code> tworzy nowy obiekt <code>ScheduledWorkout</code> powiÄ…zany z wybranym planem i datÄ…. Metoda <code>markCompleted()</code> zmienia status treningu na ukoĹ„czony.</p>
+
+<p>Funkcja <code>startWorkout(scheduled, exercises)</code> generuje wpisy <code>LogEntry</code> dla kaĹĽdej serii kaĹĽdego Ä‡wiczenia z planu. Funkcja <code>lastValues(exerciseId)</code> wyszukuje ostatni ukoĹ„czony wpis dla danego Ä‡wiczenia, dostarczajÄ…c podpowiedzi progresji ciÄ™ĹĽarĂłw.</p>
+
+<p>Funkcja <code>finishWorkout(durationMin)</code> zapisuje log treningu z czasem trwania i oznacza go jako ukoĹ„czony, co wspĂłĹ‚gra z systemem statystyk.</p>
+
+<h2>3. Warstwa widoku</h2>
+
+<h3>ZgodnoĹ›Ä‡ warstwy klienckiej ze specyfikacjÄ…</h3>
+<p>Interfejs uĹĽytkownika zaimplementowany w technologii Jetpack Compose precyzyjnie odwzorowuje wymagania:</p>
+<ul>
+    <li>Komponent <code>NavigationBar</code> z 5 zakĹ‚adkami odpowiada za gĹ‚ĂłwnÄ… nawigacjÄ™ po aplikacji.</li>
+    <li>Komponent <code>LazyColumn</code> wraz z pÄ™tlÄ… iteruje po elementach dostarczanych przez ViewModel, prezentujÄ…c je na ekranie w formie rozwijalnych kategorii.</li>
+    <li>Natywny modyfikator <code>SwipeToDismissBox</code> dodany do komĂłrki listy aktywuje systemowy gest usuwania.</li>
+    <li>Warunkowe modyfikatory widoku, takie jak zmiana koloru tĹ‚a i ikon, zapewniajÄ… natychmiastowÄ… informacjÄ™ zwrotnÄ… o statusie zadania.</li>
+    <li>Komponent <code>AlertDialog</code> z listÄ… <code>RadioButton</code> umoĹĽliwia wybĂłr planu treningowego do zaplanowania na wybranÄ… datÄ™.</li>
+</ul>
+
+<h3>Separacja logiki od widoku (Architektura MVVM)</h3>
+<p>W projekcie zastosowano Ĺ›cisĹ‚Ä… separacjÄ™ logiki biznesowej od prezentacji, implementujÄ…c wzorzec MVVM (Model-View-ViewModel):</p>
+<ul>
+    <li><b>Model</b> (<code>Exercise</code>, <code>WorkoutPlan</code>, <code>ScheduledWorkout</code>, <code>WorkoutLog</code>, <code>LogEntry</code>): Reprezentuje czyste struktury danych. Nie posiada ĹĽadnej wiedzy o tym, jak dane bÄ™dÄ… wyĹ›wietlane ani jak bÄ™dÄ… modyfikowane.</li>
+    <li><b>ViewModel</b> (<code>ExerciseViewModel</code>, <code>PlanViewModel</code>, <code>CalendarViewModel</code>, <code>WorkoutViewModel</code>, <code>StatsViewModel</code>): Stanowi â€žmĂłzg" aplikacji. DziedziczÄ…c po <code>AndroidViewModel</code>, implementuje metody modyfikujÄ…ce stan danych. ViewModel nie importuje elementĂłw interfejsu graficznego.</li>
+    <li><b>View</b> (Composable functions): Odpowiada wyĹ‚Ä…cznie za ukĹ‚ad graficzny. Widok nie modyfikuje struktur danych bezpoĹ›rednio â€” w przypadku akcji uĹĽytkownika (np. klikniÄ™cie przycisku, gest przesuniÄ™cia) przesyĹ‚a jedynie intencjÄ™ do ViewModelu, wywoĹ‚ujÄ…c jego odpowiednie metody.</li>
+</ul>
+
+<h3>Stosowanie konwencji nazewniczych i formatowania</h3>
+<p>Kod ĹşrĂłdĹ‚owy projektu zostaĹ‚ napisany z restrykcyjnym poszanowaniem oficjalnych wytycznych jÄ™zyka Kotlin (<i>Kotlin Coding Conventions</i>):</p>
+<ul>
+    <li><b>PascalCase (UpperCamelCase):</b> Zastosowany do nazw typĂłw, struktur i klas, np.: <code>Exercise</code>, <code>WorkoutPlan</code>, <code>ExerciseViewModel</code>, <code>CalendarScreen</code>.</li>
+    <li><b>camelCase (lowerCamelCase):</b> Zastosowany do nazw zmiennych, staĹ‚ych oraz funkcji, np.: <code>exercises</code>, <code>searchQuery</code>, <code>addExercise()</code>, <code>toggleEntryCompleted()</code>.</li>
+    <li><b>SamoopisujÄ…ce siÄ™ nazwy:</b> Unikano skrĂłtĂłw. Nazwy funkcji jasno wskazujÄ… na intencjÄ™ i wykonywanÄ… operacjÄ™ (np. <code>toggleEntryCompleted</code> precyzyjnie opisuje przeĹ‚Ä…czenie stanu ukoĹ„czenia serii).</li>
+    <li><b>Formatowanie i wciÄ™cia:</b> Zastosowano standardowe wciÄ™cia strukturalne (4 spacje / tabulacja) automatycznie wyrĂłwnywane przez IDE Android Studio, co zapewnia maksymalnÄ… czytelnoĹ›Ä‡ kodu i uĹ‚atwia jego pĂłĹşniejszy przeglÄ…d (Code Review).</li>
+</ul>
+
+<h3>PrzeglÄ…d kodu i struktury technicznej</h3>
+<p>PoniĹĽej przedstawiono peĹ‚nÄ… architekturÄ™ technicznÄ… wraz z kompletnym kodem ĹşrĂłdĹ‚owym, co stanowi rozszerzonÄ… dokumentacjÄ™ technicznÄ… wykazujÄ…cÄ… integralnoĹ›Ä‡ caĹ‚ego systemu.</p>
+<ul>
+    <li><code>MainActivity.kt</code> â€” gĹ‚Ăłwny punkt wejĹ›cia do aplikacji, inicjalizujÄ…cy okno gĹ‚Ăłwne.</li>
+    <li><code>Exercise.kt</code>, <code>WorkoutPlan.kt</code>, <code>ScheduledWorkout.kt</code>, <code>WorkoutLog.kt</code>, <code>LogEntry.kt</code> â€” pliki definicji struktur danych.</li>
+    <li><code>ExerciseViewModel.kt</code>, <code>PlanViewModel.kt</code>, <code>CalendarViewModel.kt</code>, <code>WorkoutViewModel.kt</code>, <code>StatsViewModel.kt</code> â€” pliki logiki biznesowej aplikacji (zarzÄ…dzanie stanem).</li>
+    <li><code>ExerciseListScreen.kt</code>, <code>PlanListScreen.kt</code>, <code>CalendarScreen.kt</code>, <code>WorkoutScreen.kt</code>, <code>StatsScreen.kt</code> â€” widoki uĹĽytkownika zawierajÄ…ce elementy UI.</li>
+    <li><code>DataStore.kt</code> â€” warstwa persystencji danych (JSON + SharedPreferences).</li>
+    <li><code>SampleData.kt</code> â€” klasa inicjalizujÄ…ca domyĹ›lne dane aplikacji.</li>
+</ul>
+
+<div class="page-break"></div>
+
+<div class="screenshot-row">
+    <div class="screenshot-item">
+        <img src="code_exercise.png" alt="Exercise.kt">
+    </div>
+    <div class="screenshot-item">
+        <img src="code_exerciseviewmodel.png" alt="ExerciseViewModel.kt">
+    </div>
+</div>
+<div class="screenshot-caption">Exercise.kt â€” plik definicji struktury danych &nbsp;&nbsp;|&nbsp;&nbsp; ExerciseViewModel.kt â€” logika biznesowa</div>
+
+<div class="screenshot-row">
+    <div class="screenshot-item">
+        <img src="code_exerciselistscreen.png" alt="ExerciseListScreen.kt">
+    </div>
+    <div class="screenshot-item">
+        <img src="code_datastore.png" alt="DataStore.kt">
+    </div>
+</div>
+<div class="screenshot-caption">ExerciseListScreen.kt â€” widok uĹĽytkownika &nbsp;&nbsp;|&nbsp;&nbsp; DataStore.kt â€” warstwa persystencji danych</div>
+
+<div class="page-break"></div>
+
+<div class="screenshot-row">
+    <div class="screenshot-item">
+        <img src="screen_cwiczenia.png" alt="Ä†wiczenia">
+    </div>
+    <div class="screenshot-item">
+        <img src="screen_plany.png" alt="Plany">
+    </div>
+</div>
+<div class="screenshot-caption">Lista Ä‡wiczeĹ„ pogrupowana wg kategorii &nbsp;&nbsp;|&nbsp;&nbsp; Plany treningowe</div>
+
+<div class="screenshot-row">
+    <div class="screenshot-item">
+        <img src="screen_plan_detail.png" alt="SzczegĂłĹ‚y planu">
+    </div>
+    <div class="screenshot-item">
+        <img src="screen_kalendarz.png" alt="Kalendarz">
+    </div>
+</div>
+<div class="screenshot-caption">SzczegĂłĹ‚y planu treningowego &nbsp;&nbsp;|&nbsp;&nbsp; Kalendarz treningowy</div>
+
+<div class="screenshot-row">
+    <div class="screenshot-item">
+        <img src="screen_trening.png" alt="Trening">
+    </div>
+    <div class="screenshot-item">
+        <img src="screen_statystyki.png" alt="Statystyki">
+    </div>
+</div>
+<div class="screenshot-caption">Lista treningĂłw do wykonania &nbsp;&nbsp;|&nbsp;&nbsp; Statystyki i progresja</div>
+
+</body>
+</html>
+

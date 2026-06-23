@@ -1,0 +1,14 @@
+# Android build
+**/build/
+.gradle/
+local.properties
+.idea/
+.kotlin/
+.DS_Store
+/captures
+.externalNativeBuild
+.cxx
+*.apk
+*.aab
+*.hprof
+*.exe
